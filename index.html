@@ -197,9 +197,47 @@
             background: none;
         }
         
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
         .x-logo {
             font-weight: 700;
             font-size: 1.3rem;
+        }
+        
+        .whatsapp-icon {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
         
         .bio-section {
@@ -388,6 +426,20 @@
             .bio-section, .contact-form-section {
                 padding: 1.5rem;
             }
+            
+            .social-icons {
+                gap: 1rem;
+            }
+            
+            .social-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-icon {
+                font-size: 1.6rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -401,6 +453,20 @@
             
             .contact-item {
                 padding: 1.5rem 1rem;
+            }
+            
+            .social-icons {
+                gap: 0.8rem;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .whatsapp-icon {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -438,11 +504,15 @@
             <div class="contact-item">
                 <i class="fas fa-link"></i>
                 <h3>Connect Online</h3>
-                <ul class="connect-list">
-                    <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/2330263182850" target="_blank">WhatsApp: +233 026 318 2850</a></li>
-                    <li><i class="x-logo">𝕏</i><a href="https://twitter.com/Chrisadoku2019" target="_blank">@Chrisadoku2019 on X</a></li>
-                </ul>
-                <p>Message me directly for quick chats!</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/2330263182850" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                    </a>
+                    <a href="https://twitter.com/Chrisadoku2019" target="_blank" class="social-icon">
+                        <span class="x-logo">𝕏</span>
+                    </a>
+                </div>
+                <p style="margin-top: 1rem;">Message me directly for quick chats!</p>
             </div>
         </section>
 
