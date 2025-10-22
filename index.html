@@ -4,7 +4,7 @@
     <meta name="google-adsense-account" content="ca-pub-2265931039572133">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Christopher Adoku (Enhanced)</title>
+    <title>Contact - Christopher Adoku (Blue Glass)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -12,15 +12,15 @@
         /* 1. Global & Variables */
         /* ================================================================= */
         :root {
-            --primary: #D4AF37;
-            --primary-dark: #B8860B;
-            --secondary: #333;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --gray: #6c757d;
-            --gold-light: #FFD700;
-            --gold-medium: #D4AF37;
-            --gold-dark: #B8860B;
+            --primary: #4A90E2;
+            --primary-light: #6BA8F0;
+            --primary-dark: #2C5AA0;
+            --accent: #00C6FF;
+            --accent-light: #5CE1FF;
+            --secondary: #1A2B4C;
+            --light: #f0f8ff;
+            --dark: #0A1429;
+            --gray: #8FA3BF;
             --border-radius: 16px;
             --box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -36,39 +36,78 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%);
-            color: var(--dark);
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: var(--light);
             line-height: 1.7;
             position: relative;
             overflow-x: hidden;
         }
         
         /* ================================================================= */
-        /* 2. Background Effects (Enhanced) */
+        /* 2. Liquid Glass Background Effects */
         /* ================================================================= */
 
-        /* Animated background for glass effect */
-        body::before {
-            content: '';
+        .liquid-bg {
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 10% 90%, rgba(255, 215, 0, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
             z-index: -1;
-            animation: backgroundShift 60s infinite alternate;
-        }
-        
-        @keyframes backgroundShift {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
         }
 
-        /* Particle animations remain for the light effect */
+        .liquid-shape {
+            position: absolute;
+            background: rgba(74, 144, 226, 0.15);
+            border-radius: 50%;
+            filter: blur(30px);
+            animation: liquidMove 15s infinite alternate;
+        }
+
+        .liquid-shape:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .liquid-shape:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .liquid-shape:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            bottom: 50%;
+            right: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes liquidMove {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                border-radius: 50%;
+            }
+            25% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                transform: translate(100px, 50px) rotate(180deg);
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+            75% {
+                border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+            }
+            100% {
+                transform: translate(-50px, -100px) rotate(360deg);
+                border-radius: 50%;
+            }
+        }
+
+        /* Particle animations for the light effect */
         .particles {
             position: fixed;
             top: 0;
@@ -81,10 +120,10 @@
         
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 198, 255, 0.5);
             border-radius: 50%;
             animation: float 20s infinite linear;
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 5px rgba(0, 198, 255, 0.8);
         }
         
         @keyframes float {
@@ -109,7 +148,7 @@
         /* ================================================================= */
         
         header {
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-medium) 70%, var(--gold-dark) 100%);
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.7) 0%, rgba(44, 90, 160, 0.8) 100%);
             color: white;
             text-align: center;
             padding: 4rem 2rem 5rem;
@@ -117,22 +156,16 @@
             overflow: hidden;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border-bottom: 5px solid var(--gold-dark);
+            border-bottom: 5px solid var(--accent);
             z-index: 10;
         }
         
-        header::before {
-            content: '';
+        .glass-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm10.5-12.5a.5.5 0 0 0-.5-.5h-20a.5.5 0 0 0-.5.5v16a.5.5 0 0 0 .5.5h20a.5.5 0 0 0 .5-.5v-16zM30 0a30 30 0 1 0 0 60 30 30 0 0 0 0-60zm0 58c-15.464 0-28-12.536-28-28S14.536 2 30 2s28 12.536 28 28-12.536 28-28 28z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-        
-        .glass-overlay {
             background: linear-gradient(
                 135deg,
                 rgba(255, 255, 255, 0.2) 0%,
@@ -141,6 +174,7 @@
             );
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            z-index: -1;
         }
         
         header h1 {
@@ -174,7 +208,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* NEW: Hero Illustration Element */
+        /* Hero Illustration Element */
         .hero-illustration {
             width: 100%;
             max-width: 300px;
@@ -221,17 +255,20 @@
         }
         
         .contact-item {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.1);
             padding: 2.5rem 1.5rem;
             border-radius: var(--border-radius);
             box-shadow: 
                 var(--box-shadow),
-                0 0 15px rgba(212, 175, 55, 0.15);
+                0 0 15px rgba(74, 144, 226, 0.15);
             transition: var(--transition);
             text-align: center;
             position: relative;
             overflow: hidden;
             transform: perspective(1px) translateZ(0);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .contact-item::before {
@@ -241,7 +278,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -255,10 +292,10 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 
                 0 20px 45px rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(212, 175, 55, 0.3);
+                0 0 20px rgba(74, 144, 226, 0.3);
         }
 
-        /* NEW: Icon styling with animated glow */
+        /* Icon styling with animated glow */
         .contact-item i {
             font-size: 3rem;
             width: 90px;
@@ -269,25 +306,25 @@
             color: var(--primary);
             margin: 0 auto 1.5rem;
             display: block;
-            border: 3px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            border: 3px solid rgba(74, 144, 226, 0.3);
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
             animation: pulseIcon 2s infinite ease-in-out;
         }
 
         @keyframes pulseIcon {
-            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
-            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); }
+            0%, 100% { box-shadow: 0 0 15px rgba(74, 144, 226, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(74, 144, 226, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); }
         }
 
         .contact-item h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--secondary);
+            color: white;
         }
         
         .contact-item p {
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .email-list {
@@ -299,9 +336,9 @@
             margin-bottom: 0.5rem;
         }
 
-        /* NEW: Animated Underline for links */
+        /* Animated Underline for links */
         a {
-            color: var(--primary-dark);
+            color: var(--accent-light);
             text-decoration: none;
             transition: var(--transition);
             font-weight: 500;
@@ -317,33 +354,33 @@
             display: block;
             margin-top: 2px;
             right: 0;
-            background: var(--gold-dark);
+            background: var(--accent-light);
             transition: width 0.3s ease;
         }
 
         a:hover::after {
             width: 100%;
             left: 0;
-            background: var(--gold-dark);
+            background: var(--accent-light);
         }
 
         a:hover {
-            color: var(--gold-dark);
+            color: var(--accent-light);
             text-decoration: none;
         }
         
-        /* NEW: Pulse Animation for Phone Number */
+        /* Pulse Animation for Phone Number */
         .contact-item p strong {
             display: inline-block;
             font-size: 1.5rem;
-            color: var(--primary-dark);
+            color: var(--accent-light);
             animation: pulseText 2.5s infinite ease-in-out;
         }
 
         @keyframes pulseText {
-            0% { transform: scale(1); text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
-            50% { transform: scale(1.05); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-            100% { transform: scale(1); text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+            0% { transform: scale(1); text-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
+            50% { transform: scale(1.05); text-shadow: 0 0 10px rgba(0, 198, 255, 0.5); }
+            100% { transform: scale(1); text-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
         }
 
         /* ================================================================= */
@@ -375,7 +412,7 @@
             background: var(--primary-dark);
             color: white;
             transform: translateY(-5px) rotate(5deg);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
         }
         
         .x-logo {
@@ -383,20 +420,28 @@
             font-weight: bold;
         }
 
+        /* WhatsApp specific styling */
+        .whatsapp-icon {
+            font-size: 1.5rem;
+        }
+
         /* ================================================================= */
         /* 6. Bio & Form Sections */
         /* ================================================================= */
 
         .bio-section, .contact-form-section {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.1);
             padding: 3rem;
             border-radius: var(--border-radius);
             box-shadow: 
                 var(--box-shadow),
-                0 0 15px rgba(212, 175, 55, 0.15);
+                0 0 15px rgba(74, 144, 226, 0.15);
             margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .bio-section::before, .contact-form-section::before {
@@ -406,14 +451,14 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
         }
 
         .bio-section h2, .contact-form-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            color: var(--secondary);
+            color: white;
             position: relative;
             display: inline-block;
         }
@@ -425,13 +470,14 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
             border-radius: 2px;
         }
         
         .bio-section p {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .form-group {
@@ -442,28 +488,34 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--secondary);
+            color: white;
         }
         
         input, textarea {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(74, 144, 226, 0.2);
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
+            color: white;
         }
         
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
         
         button {
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--primary) 100%);
             color: white;
             border: none;
             padding: 0.8rem 2.5rem;
@@ -476,18 +528,18 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
         }
         
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
         }
         
         .form-note {
             margin-top: 1rem;
             font-style: italic;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8);
             text-align: center;
         }
         
@@ -496,11 +548,13 @@
         /* ================================================================= */
 
         footer {
-            background: var(--secondary);
+            background: rgba(26, 43, 76, 0.8);
             color: #ccc;
             padding: 2.5rem 2rem;
             text-align: center;
             position: relative;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
         footer::before {
@@ -510,7 +564,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            background: linear-gradient(90deg, var(--accent-light), var(--accent));
         }
 
         /* ================================================================= */
@@ -543,6 +597,11 @@
     </style>
 </head>
 <body>
+    <div class="liquid-bg">
+        <div class="liquid-shape"></div>
+        <div class="liquid-shape"></div>
+        <div class="liquid-shape"></div>
+    </div>
     <div class="particles" id="particles"></div>
     
     <header>
@@ -604,17 +663,22 @@
             <form action="https://formspree.io/f/xqayydob" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Your Phone Number (Optional):</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                 </div>
                 
                 <div class="form-group">
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
                 </div>
                 
                 <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
@@ -671,4 +735,3 @@
     </script>
 </body>
 </html>
-
