@@ -4,12 +4,13 @@
     <meta name="google-adsense-account" content="ca-pub-2265931039572133">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Christopher Adoku</title>
-    <!-- Font Awesome for icons/logos -->
+    <title>Contact - Christopher Adoku (Enhanced)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* ================================================================= */
+        /* 1. Global & Variables */
+        /* ================================================================= */
         :root {
             --primary: #D4AF37;
             --primary-dark: #B8860B;
@@ -20,9 +21,9 @@
             --gold-light: #FFD700;
             --gold-medium: #D4AF37;
             --gold-dark: #B8860B;
-            --border-radius: 12px;
-            --box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         * {
@@ -37,11 +38,15 @@
             padding: 0;
             background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
             position: relative;
             overflow-x: hidden;
         }
         
+        /* ================================================================= */
+        /* 2. Background Effects (Enhanced) */
+        /* ================================================================= */
+
         /* Animated background for glass effect */
         body::before {
             content: '';
@@ -51,13 +56,19 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 10% 90%, rgba(255, 215, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
             z-index: -1;
+            animation: backgroundShift 60s infinite alternate;
         }
         
-        /* Floating particles for light effect */
+        @keyframes backgroundShift {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Particle animations remain for the light effect */
         .particles {
             position: fixed;
             top: 0;
@@ -70,9 +81,10 @@
         
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
-            animation: float 15s infinite linear;
+            animation: float 20s infinite linear;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
         }
         
         @keyframes float {
@@ -92,16 +104,21 @@
             }
         }
         
+        /* ================================================================= */
+        /* 3. Header & Hero Illustration */
+        /* ================================================================= */
+        
         header {
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-medium) 50%, var(--gold-dark) 100%);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-medium) 70%, var(--gold-dark) 100%);
             color: white;
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem 5rem;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 5px solid var(--gold-dark);
+            z-index: 10;
         }
         
         header::before {
@@ -111,76 +128,110 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm10.5-12.5a.5.5 0 0 0-.5-.5h-20a.5.5 0 0 0-.5.5v16a.5.5 0 0 0 .5.5h20a.5.5 0 0 0 .5-.5v-16zM30 0a30 30 0 1 0 0 60 30 30 0 0 0 0-60zm0 58c-15.464 0-28-12.536-28-28S14.536 2 30 2s28 12.536 28 28-12.536 28-28 28z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.3;
         }
         
-        /* Glass effect overlay for header */
         .glass-overlay {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0.5rem auto 1.5rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* NEW: Hero Illustration Element */
+        .hero-illustration {
+            width: 100%;
+            max-width: 300px;
+            height: 10px;
+            background: white;
+            margin: 1.5rem auto 0;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-illustration::after {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(255, 255, 255, 0.05) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+            animation: sheen 3s infinite;
+        }
+
+        @keyframes sheen {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(100%); }
         }
         
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        
+        /* ================================================================= */
+        /* 4. Contact Items (Liveliness & Attraction) */
+        /* ================================================================= */
+
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 0 1.5rem;
         }
         
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
         
         .contact-item {
-            background: rgba(255, 255, 255, 0.25);
-            text-align: center;
-            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 2.5rem 1.5rem;
             border-radius: var(--border-radius);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                var(--box-shadow),
+                0 0 15px rgba(212, 175, 55, 0.15);
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: perspective(1px) translateZ(0);
         }
         
         .contact-item::before {
@@ -189,296 +240,198 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            z-index: -1;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
         
-        .contact-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.4),
-                transparent
-            );
-            transition: left 0.7s ease;
-        }
-        
-        .contact-item:hover::after {
-            left: 100%;
+        .contact-item:hover::before {
+            transform: scaleX(1);
         }
         
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                0 20px 45px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(212, 175, 55, 0.3);
         }
-        
-        .contact-item h3 {
-            margin: 1rem 0 0.5rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-        
+
+        /* NEW: Icon styling with animated glow */
         .contact-item i {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            background: rgba(212, 175, 55, 0.1);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 3rem;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
             border-radius: 50%;
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--primary);
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            animation: pulseIcon 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); }
+        }
+
+        .contact-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
         }
         
+        .contact-item p {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .email-list {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .email-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* NEW: Animated Underline for links */
         a {
             color: var(--primary-dark);
             text-decoration: none;
             transition: var(--transition);
             font-weight: 500;
+            position: relative;
+            display: inline-block;
         }
         
+        a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+            right: 0;
+            background: var(--gold-dark);
+            transition: width 0.3s ease;
+        }
+
+        a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--gold-dark);
+        }
+
         a:hover {
             color: var(--gold-dark);
-            text-decoration: underline;
+            text-decoration: none;
         }
         
-        .email-list {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-        }
-        
-        .email-list li {
-            margin-bottom: 0.75rem;
-            padding: 0.5rem;
-            border-radius: 6px;
-            transition: var(--transition);
-        }
-        
-        .email-list li:hover {
-            background: rgba(212, 175, 55, 0.05);
-        }
-        
-        .connect-list {
-            list-style: none;
-            padding: 0;
-            width: 100%;
-        }
-        
-        .connect-list li {
-            margin-bottom: 0.75rem;
-            padding: 0.5rem;
-            border-radius: 6px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        
-        .connect-list li:hover {
-            background: rgba(212, 175, 55, 0.05);
-        }
-        
-        .connect-list i {
+        /* NEW: Pulse Animation for Phone Number */
+        .contact-item p strong {
+            display: inline-block;
             font-size: 1.5rem;
-            margin-right: 0.75rem;
-            width: auto;
-            height: auto;
-            background: none;
+            color: var(--primary-dark);
+            animation: pulseText 2.5s infinite ease-in-out;
         }
+
+        @keyframes pulseText {
+            0% { transform: scale(1); text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.05); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            100% { transform: scale(1); text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+        }
+
+        /* ================================================================= */
+        /* 5. Social Icons (Enhanced Interaction) */
+        /* ================================================================= */
         
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-top: 1rem;
         }
         
         .social-icon {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            transition: var(--transition);
-            color: var(--primary-dark);
-            font-size: 1.8rem;
-            text-decoration: none;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            border-radius: 50%;
-            z-index: -1;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease-out, background 0.3s ease-out, box-shadow 0.3s ease-out;
+            transform: perspective(1px) translateZ(0);
         }
         
         .social-icon:hover {
             background: var(--primary-dark);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
         }
         
         .x-logo {
-            font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
-        
-        .whatsapp-icon {
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .bio-section {
-            margin-top: 3rem;
-            padding: 2.5rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.25);
+
+        /* ================================================================= */
+        /* 6. Bio & Form Sections */
+        /* ================================================================= */
+
+        .bio-section, .contact-form-section {
+            background: rgba(255, 255, 255, 0.35);
+            padding: 3rem;
             border-radius: var(--border-radius);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                var(--box-shadow),
+                0 0 15px rgba(212, 175, 55, 0.15);
+            margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .bio-section::before {
+        .bio-section::before, .contact-form-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            z-index: -1;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
         }
-        
-        .bio-section h2 {
-            color: var(--primary-dark);
+
+        .bio-section h2, .contact-form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            font-weight: 600;
+            color: var(--secondary);
             position: relative;
             display: inline-block;
         }
         
-        .bio-section h2::after {
+        .bio-section h2::after, .contact-form-section h2::after {
             content: '';
             position: absolute;
             bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
             border-radius: 2px;
         }
         
         .bio-section p {
-            max-width: 800px;
-            margin: 0 auto;
             font-size: 1.1rem;
-            color: var(--gray);
-        }
-        
-        .contact-form-section {
-            margin-top: 3rem;
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: var(--border-radius);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .contact-form-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            z-index: -1;
-        }
-        
-        .contact-form-section h2 {
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .contact-form-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
+            line-height: 1.8;
         }
         
         .form-group {
@@ -489,99 +442,65 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--secondary);
         }
         
         input, textarea {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 8px;
+            background: rgba(255, 255, 255, 0.5);
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
         }
         
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);
         }
         
         button {
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-medium) 100%);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--primary) 100%);
             color: white;
-            padding: 0.75rem 2rem;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             font-weight: 500;
+            cursor: pointer;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-        
-        button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.4),
-                transparent
-            );
-            transition: left 0.7s ease;
-        }
-        
-        button:hover::before {
-            left: 100%;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
         
         button:hover {
-            background: linear-gradient(135deg, var(--gold-medium) 0%, var(--gold-dark) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-        
-        button i {
-            margin-right: 0.5rem;
-            font-size: 1rem;
-            background: none;
-            width: auto;
-            height: auto;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
         }
         
         .form-note {
-            font-size: 0.9rem;
-            color: var(--gray);
             margin-top: 1rem;
+            font-style: italic;
+            color: var(--gray);
+            text-align: center;
         }
         
+        /* ================================================================= */
+        /* 7. Footer */
+        /* ================================================================= */
+
         footer {
-            text-align: center;
-            padding: 2rem;
             background: var(--secondary);
-            color: white;
-            margin-top: 3rem;
+            color: #ccc;
+            padding: 2.5rem 2rem;
+            text-align: center;
             position: relative;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
         
         footer::before {
@@ -590,84 +509,52 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-medium), var(--gold-dark));
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-dark));
         }
-        
+
+        /* ================================================================= */
+        /* 8. Media Queries */
+        /* ================================================================= */
+
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.8rem;
             }
             
             header p {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .bio-section, .contact-form-section {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
             }
             
             .contact-info {
                 grid-template-columns: 1fr;
             }
-            
-            .bio-section, .contact-form-section {
-                padding: 1.5rem;
-            }
-            
-            .social-icons {
-                gap: 1rem;
-            }
-            
-            .social-icon {
-                width: 55px;
-                height: 55px;
-                font-size: 1.6rem;
-            }
-            
-            .whatsapp-icon {
-                font-size: 1.6rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            header {
-                padding: 2rem 1rem;
-            }
-            
-            .contact-item {
-                padding: 1.5rem 1rem;
-            }
-            
-            .social-icons {
-                gap: 0.8rem;
-            }
-            
-            .social-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .whatsapp-icon {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating particles for light effect -->
     <div class="particles" id="particles"></div>
     
     <header>
         <div class="glass-overlay"></div>
         <h1>Christopher Adoku</h1>
-        <p>Let's Connect! | Personal Contact Page</p>
+        <p>Let's Connect! | Tech Enthusiast & Web Developer</p>
+        <div class="hero-illustration"></div> 
     </header>
 
     <div class="container">
         <section class="contact-info">
-            <div class="contact-item">
+            <div class="contact-item" data-animation="fadeInUp">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
                 <ul class="email-list">
@@ -677,26 +564,27 @@
                 </ul>
                 <p>Feel free to email me for any questions or opportunities.</p>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-animation="fadeInUp">
                 <i class="fas fa-phone"></i>
                 <h3>Phone</h3>
-                <p><strong>+233 026 318 2850</strong></p>
+                <p><strong>+233 (0)26 318 2850</strong></p>
+                <p><strong>+233 (0)53 934 4929 </strong></p>
                 <p>Available for calls or messages.</p>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-animation="fadeInUp">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Location</h3>
                 <p>Bananana Inn<br>Dansoman, Saka Dawuru Lane<br>Ghana</p>
                 <p>Based in Ghana open to global connections.</p>
             </div>
-            <div class="contact-item">
+            <div class="contact-item" data-animation="fadeInUp">
                 <i class="fas fa-link"></i>
                 <h3>Connect Online</h3>
                 <div class="social-icons">
-                    <a href="https://wa.me/2330263182850" target="_blank" class="social-icon">
+                    <a href="https://wa.me/2330263182850" target="_blank" class="social-icon" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp whatsapp-icon"></i>
                     </a>
-                    <a href="https://twitter.com/Chrisadoku2019" target="_blank" class="social-icon">
+                    <a href="https://twitter.com/Chrisadoku2019" target="_blank" class="social-icon" aria-label="X (Twitter)">
                         <span class="x-logo">𝕏</span>
                     </a>
                 </div>
@@ -704,13 +592,11 @@
             </div>
         </section>
 
-        <!-- Bio Section for Personal Touch -->
         <section class="bio-section">
             <h2>A Little About Me</h2>
-            <p>Hi, I'm Christopher, a tech enthusiast from Ghana. I'm passionate about web development, open-source projects, and connecting with like-minded people. When not online, I enjoy exploring new ideas and staying active.</p>
+            <p>Hi, I'm Christopher, a tech enthusiast from Ghana. I'm passionate about web development, open-source projects, and connecting with like-minded people. I focus on creating clean, efficient, and user-friendly digital experiences. When not coding, I enjoy exploring new ideas and staying active. Let's build something great together!</p>
         </section>
 
-        <!-- Contact Form with your actual Formspree endpoint -->
         <section class="contact-form-section">
             <h2>Send Me a Message</h2>
             <form action="https://formspree.io/f/xqayydob" method="POST">
@@ -736,33 +622,49 @@
     </div>
 
     <footer>
-        <p>&copy; 2023 Christopher Adoku. All rights reserved. | Hosted on GitHub Pages</p>
+        <p>&copy; 2023 Christopher Adoku. All rights reserved.</p>
     </footer>
 
     <script>
         // Create floating particles for light effect
         document.addEventListener('DOMContentLoaded', function() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 20;
+            const particleCount = 35; 
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random size between 2px and 6px
-                const size = Math.random() * 4 + 2;
+                const size = Math.random() * 6 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
-                // Random position
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
                 
-                // Random animation delay
-                particle.style.animationDelay = `${Math.random() * 15}s`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
                 
                 particlesContainer.appendChild(particle);
             }
+            
+            // Add scroll animation for contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            contactItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
         });
     </script>
 </body>
