@@ -4,850 +4,143 @@
     <meta name="google-adsense-account" content="ca-pub-2265931039572133">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Christopher Adoku</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Christopher Adoku - Contact</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* ================================================================= */
-        /* 1. Global & Variables */
-        /* ================================================================= */
-        :root {
-            --primary: #4A90E2;
-            --primary-light: #6BA8F0;
-            --primary-dark: #2C5AA0;
-            --accent: #00C6FF;
-            --accent-light: #5CE1FF;
-            --secondary: #1A2B4C;
-            --light: #f0f8ff;
-            --dark: #0A1429;
-            --gray: #8FA3BF;
-            --border-radius: 16px;
-            --box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: var(--light);
-            line-height: 1.7;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* ================================================================= */
-        /* 2. Liquid Glass Background Effects */
-        /* ================================================================= */
-
-        .liquid-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .liquid-shape {
-            position: absolute;
-            background: rgba(74, 144, 226, 0.15);
-            border-radius: 50%;
-            filter: blur(30px);
-            animation: liquidMove 15s infinite alternate;
-        }
-
-        .liquid-shape:nth-child(1) {
-            width: 500px;
-            height: 500px;
-            top: -200px;
-            left: -200px;
-            animation-delay: 0s;
-        }
-
-        .liquid-shape:nth-child(2) {
-            width: 400px;
-            height: 400px;
-            bottom: -150px;
-            right: -100px;
-            animation-delay: 5s;
-        }
-
-        .liquid-shape:nth-child(3) {
-            width: 300px;
-            height: 300px;
-            bottom: 50%;
-            right: 50%;
-            animation-delay: 10s;
-        }
-
-        @keyframes liquidMove {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-                border-radius: 50%;
-            }
-            25% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-            50% {
-                transform: translate(100px, 50px) rotate(180deg);
-                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            }
-            75% {
-                border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
-            }
-            100% {
-                transform: translate(-50px, -100px) rotate(360deg);
-                border-radius: 50%;
-            }
-        }
-
-        /* Particle animations for the light effect */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(0, 198, 255, 0.5);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-            box-shadow: 0 0 5px rgba(0, 198, 255, 0.8);
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* ================================================================= */
-        /* 3. Navigation */
-        /* ================================================================= */
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            display: block;
-            bottom: 0;
-            right: 0;
-            background: var(--accent-light);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent-light);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* ================================================================= */
-        /* 4. Header & Hero Section */
-        /* ================================================================= */
-        
-        .hero {
-            background: linear-gradient(135deg, rgba(74, 144, 226, 0.7) 0%, rgba(44, 90, 160, 0.8) 100%);
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem 5rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 5px solid var(--accent);
-        }
-        
-        .glass-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.2) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: -1;
-        }
-        
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            text-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            letter-spacing: 2px;
-            animation: slideInDown 1s ease-out;
-        }
-
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0.5rem auto 1.5rem;
-            position: relative;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Hero Illustration Element */
-        .hero-illustration {
-            width: 100%;
-            max-width: 300px;
-            height: 10px;
-            background: white;
-            margin: 1.5rem auto 0;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-illustration::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
-            animation: sheen 3s infinite;
-        }
-
-        @keyframes sheen {
-            0% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* ================================================================= */
-        /* 5. Main Content Sections */
-        /* ================================================================= */
-
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        .section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: 
-                var(--box-shadow),
-                0 0 15px rgba(74, 144, 226, 0.15);
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-light), var(--accent));
-        }
-
-        .section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-light), var(--accent));
-            border-radius: 2px;
-        }
-        
-        /* ================================================================= */
-        /* 6. Contact Page Specific Styles */
-        /* ================================================================= */
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
-        
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 
-                var(--box-shadow),
-                0 0 15px rgba(74, 144, 226, 0.15);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transform: perspective(1px) translateZ(0);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-light), var(--accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-        
-        .contact-item:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 20px 45px rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(74, 144, 226, 0.3);
-        }
-
-        /* Icon styling with animated glow */
-        .contact-item i {
-            font-size: 3rem;
-            width: 90px;
-            height: 90px;
-            line-height: 90px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--primary);
-            margin: 0 auto 1.5rem;
-            display: block;
-            border: 3px solid rgba(74, 144, 226, 0.3);
-            box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
-            animation: pulseIcon 2s infinite ease-in-out;
-        }
-
-        @keyframes pulseIcon {
-            0%, 100% { box-shadow: 0 0 15px rgba(74, 144, 226, 0.5); }
-            50% { box-shadow: 0 0 25px rgba(74, 144, 226, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); }
-        }
-
-        .contact-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .contact-item p {
-            margin-bottom: 0.5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .email-list {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-        
-        .email-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Animated Underline for links */
-        a {
-            color: var(--accent-light);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-            position: relative;
-            display: inline-block;
-        }
-        
-        a::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            display: block;
-            margin-top: 2px;
-            right: 0;
-            background: var(--accent-light);
-            transition: width 0.3s ease;
-        }
-
-        a:hover::after {
-            width: 100%;
-            left: 0;
-            background: var(--accent-light);
-        }
-
-        a:hover {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
-        
-        /* Pulse Animation for Phone Number */
-        .contact-item p strong {
-            display: inline-block;
-            font-size: 1.5rem;
-            color: var(--accent-light);
-            animation: pulseText 2.5s infinite ease-in-out;
-        }
-
-        @keyframes pulseText {
-            0% { transform: scale(1); text-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
-            50% { transform: scale(1.05); text-shadow: 0 0 10px rgba(0, 198, 255, 0.5); }
-            100% { transform: scale(1); text-shadow: 0 0 5px rgba(0, 198, 255, 0.3); }
-        }
-
-        /* Social Icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease-out, background 0.3s ease-out, box-shadow 0.3s ease-out;
-            transform: perspective(1px) translateZ(0);
-        }
-        
-        .social-icon:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-5px) rotate(5deg);
-            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
-        }
-        
-        .x-logo {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        /* WhatsApp specific styling */
-        .whatsapp-icon {
-            font-size: 1.5rem;
-        }
-        
-        /* Contact Form */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: white;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid rgba(74, 144, 226, 0.2);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-            color: white;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3);
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        button {
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--primary) 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 2.5rem;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
-        }
-        
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
-        }
-        
-        .form-note {
-            margin-top: 1rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-        }
-        
-        /* ================================================================= */
-        /* 7. Footer */
-        /* ================================================================= */
-
-        footer {
-            background: rgba(26, 43, 76, 0.8);
-            color: #ccc;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            margin-top: 3rem;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-light), var(--accent));
-        }
-
-        /* ================================================================= */
-        /* 8. Media Queries */
-        /* ================================================================= */
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(26, 43, 76, 0.95);
-                flex-direction: column;
-                padding: 1rem;
-                backdrop-filter: blur(15px);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section {
-                padding: 2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="liquid-bg">
-        <div class="liquid-shape"></div>
-        <div class="liquid-shape"></div>
-        <div class="liquid-shape"></div>
-    </div>
-    <div class="particles" id="particles"></div>
-    
-    <!-- Navigation -->
+    <div class="liquid-bg"></div>
+    <div class="particles"></div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">Christopher Adoku</a>
+            <div class="logo">
+                <a href="index.html">Christopher Adoku</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
-    
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="glass-overlay"></div>
-        <h1>Contact Me</h1>
-        <p>Let's connect and discuss how we can work together</p>
-        <div class="hero-illustration"></div>
-    </header>
-    
-    <!-- Main Content -->
-    <div class="container">
-        <section class="section">
-            <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new opportunities, collaborations, or just having a friendly chat about technology and web development. Feel free to reach out through any of the following channels:</p>
-            
-            <div class="contact-info">
-                <div class="contact-item" data-animation="fadeInUp">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <ul class="email-list">
-                        <li><a href="mailto:christopheradoku2019@gmail.com">christopheradoku2019@gmail.com</a></li>
-                        <li><a href="mailto:christopheradoku2019@outlook.com">christopheradoku2019@outlook.com</a></li>
-                        <li><a href="mailto:christopheradoku2019@yahoo.com">christopheradoku2019@yahoo.com</a></li>
-                    </ul>
-                    <p>Feel free to email me for any questions or opportunities.</p>
-                </div>
-                <div class="contact-item" data-animation="fadeInUp">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p><strong>+233 (0)26 318 2850</strong></p>
-                    <p><strong>+233 (0)53 934 4929 </strong></p>
-                    <p>Available for calls or messages.</p>
-                </div>
-                <div class="contact-item" data-animation="fadeInUp">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Bananana Inn<br>Dansoman, Saka Dawuru Lane<br>Ghana</p>
-                    <p>Based in Ghana open to global connections.</p>
-                </div>
-                <div class="contact-item" data-animation="fadeInUp">
-                    <i class="fas fa-link"></i>
-                    <h3>Connect Online</h3>
-                    <div class="social-icons">
-                        <a href="https://wa.me/2330263182850" target="_blank" class="social-icon" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp whatsapp-icon"></i>
-                        </a>
-                        <a href="https://twitter.com/Chrisadoku2019" target="_blank" class="social-icon" aria-label="X (Twitter)">
-                            <span class="x-logo">𝕏</span>
-                        </a>
+
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="page-title">Contact Me</h1>
+            <p class="page-subtitle">Let's connect and discuss how we can work together</p>
+        </div>
+    </section>
+
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <p style="margin-top: 1rem;">Message me directly for quick chats!</p>
+                    <h3>Email</h3>
+                    <p>christopheradoku2019@gmail.com</p>
+                    <a href="mailto:christopheradoku2019@gmail.com">Send Email</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>+233 (0)26 318 2850</p>
+                    <a href="tel:+2330263182850">Call Now</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Dansoman, Saka Dawuru Lane, Ghana</p>
+                    <a href="https://maps.google.com/?q=Bananana+Inn,+Dansoman,+Saka+Dawuru+Lane,+Ghana" target="_blank">View on Map</a>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Connect Online</h3>
+                    <p>Message me directly</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/2330263182850" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://twitter.com/Chrisadoku2019" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2>Send Me a Message</h2>
-            <form action="https://formspree.io/f/xqayydob" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Your Phone Number (Optional):</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-                </div>
-                
-                <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-            </form>
-            <p class="form-note">I'll get back to you soon via email or WhatsApp. Thanks!</p>
-        </section>
-    </div>
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 class="section-title">Send Me a Message</h2>
+                <form class="contact-form" action="https://formspree.io/f/xqayydob" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i>
+                                Your Name
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Your Email
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">
+                            <i class="fas fa-tag"></i>
+                            Subject
+                        </label>
+                        <input type="text" id="subject" name="subject" required placeholder="Project Inquiry or Collaboration">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment-dots"></i>
+                            Message
+                        </label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2023 Christopher Adoku. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Christopher Adoku. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/chrisadoku" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/chrisadoku" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/Chrisadoku2019" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://wa.me/2330263182850" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        // Create floating particles for light effect
-        document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 35; 
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 6 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-            
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Add scroll animation for contact items
-            const contactItems = document.querySelectorAll('.contact-item');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            contactItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(item);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
