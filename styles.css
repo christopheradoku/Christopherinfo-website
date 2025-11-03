@@ -29,6 +29,29 @@ body {
     position: relative;
 }
 
+/* Fixed backdrop-filter for Mac compatibility */
+.navbar,
+.skill-card,
+.project-card,
+.contact-info-card,
+.form-wrapper,
+.filter-btn,
+.btn-secondary,
+.illustration-wrapper,
+.profile-wrapper,
+.timeline-content,
+.timeline-icon,
+.expertise-card,
+.stat-item,
+.footer {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    /* Fallback for Safari */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Ensure content is visible by removing problematic backdrop-filters */
 .liquid-bg {
     position: fixed;
     top: 0;
@@ -116,9 +139,6 @@ body {
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s ease;
 }
 
@@ -270,10 +290,7 @@ body {
 }
 
 .btn-secondary {
-    background: var(--glass);
     color: var(--text-primary);
-    border: 2px solid var(--glass-border);
-    backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
@@ -290,13 +307,10 @@ body {
 .illustration-wrapper {
     width: 300px;
     height: 300px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--glass-border);
     position: relative;
     overflow: hidden;
 }
@@ -357,9 +371,6 @@ body {
 }
 
 .skill-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px;
     text-align: center;
@@ -423,13 +434,10 @@ body {
 .profile-wrapper {
     width: 100%;
     aspect-ratio: 1;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--glass-border);
 }
 
 .profile-wrapper i {
@@ -460,9 +468,6 @@ body {
 }
 
 .stat-item {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 15px;
     padding: 25px;
     text-align: center;
@@ -521,9 +526,6 @@ body {
 .timeline-icon {
     width: 60px;
     height: 60px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--glass-border);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -535,9 +537,6 @@ body {
 }
 
 .timeline-content {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 15px;
     padding: 25px;
 }
@@ -565,9 +564,6 @@ body {
 }
 
 .expertise-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 30px;
 }
@@ -602,9 +598,6 @@ body {
 
 .filter-btn {
     padding: 12px 30px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 50px;
     color: var(--text-primary);
     cursor: pointer;
@@ -620,9 +613,6 @@ body {
 }
 
 .project-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -680,7 +670,6 @@ body {
     width: 50px;
     height: 50px;
     background: var(--glass);
-    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 50%;
     display: flex;
@@ -738,9 +727,6 @@ body {
 }
 
 .contact-info-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px;
     text-align: center;
@@ -797,7 +783,6 @@ body {
     width: 40px;
     height: 40px;
     background: var(--glass);
-    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 50%;
     display: flex;
@@ -815,9 +800,6 @@ body {
 .form-wrapper {
     max-width: 800px;
     margin: 0 auto;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 50px;
 }
@@ -882,8 +864,6 @@ body {
 }
 
 .footer {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
     border-top: 1px solid var(--glass-border);
     padding: 40px 0;
     margin-top: 100px;
@@ -945,6 +925,7 @@ body {
         left: 0;
         width: 100%;
         background: var(--glass);
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         flex-direction: column;
         padding: 20px;
